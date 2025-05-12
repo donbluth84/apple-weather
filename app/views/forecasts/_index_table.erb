@@ -1,0 +1,22 @@
+<h1>Find your weather</h1>
+<%= form_with url: "/forecasts/show", method: :get do |form| %>
+  <div>
+    <%= form.label :address %>:
+    <%= form.text_field :address %>
+    <br/>
+    <%= form.label :city %>:
+    <%= form.text_field :city %>
+    <br/>
+    <%= form.label :state %>:
+    <%= form.text_field :state %>
+    <br/>
+    <%= form.label :zip_code %>:
+    <%= form.text_field :zip_code, size: 5, maxlength: 5 %>
+  </div>
+
+  <p/>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

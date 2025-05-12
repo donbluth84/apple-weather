@@ -1,0 +1,27 @@
+<%# If we have an error, just display the error %>
+<% if @error %>
+  <h1><%= @error %></h1>
+<% else %>
+  <%# Display the current forcast information returned %>
+  <h1>Current Forecast for Zip Code <%= @zip_code %></h1>
+
+  <div id="forecast">
+    <%# If we have cached data, denote this as such %>
+    <% if @forecast.cached %>
+      This information was retrieved within the last 30 minutes
+      <br/>
+    <% end %>
+    Temperature: <%= @forecast.current_temperature %>
+    <br/>
+    Conditions: <%= @forecast.current_conditions %>
+    <br/>
+    Humidity: <%= @forecast.humidity %>
+    <br/>
+    Wind: <%= @forecast.wind_speed %> <%= @forecast.wind_direction %>
+    <br/>
+    Barometric Pressure: <%= @forecast.barometric_pressure %> inHg
+  </div>
+<% end %>
+
+<%# Render the form %>
+<%= render partial: 'index_table' %>
